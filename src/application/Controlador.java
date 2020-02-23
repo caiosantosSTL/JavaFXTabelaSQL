@@ -1,9 +1,11 @@
 package application;
 
 
+import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -14,12 +16,22 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class Controlador implements Initializable {
 	
     @FXML
     private Button butono;
+    
+    @FXML
+    private Button butonFile;
+
+    @FXML
+    private Button butonDir;
 	
     @FXML
     private TableView<Pessoas> tabelox;
@@ -75,6 +87,7 @@ public class Controlador implements Initializable {
     		Connection con= db.Conect();
     		data=FXCollections.observableArrayList();
     		ResultSet rs= con.createStatement().executeQuery("SELECT id, nome, color FROM TabelaX");
+    		
             while (rs.next()) {
 
                 data.add(new Pessoas(rs.getString("id"), 
@@ -98,5 +111,37 @@ public class Controlador implements Initializable {
     	
 
     }
+    
+    
+    
+    @FXML
+    void ArkivoBox(ActionEvent event) {
+    	
+    	FileChooser fc = new FileChooser();
+    	//fc.getExtensionFilters().add(new ExtensionFilter("pdf", "*.pdf"));
+    	fc.getExtensionFilters();
+    	List<File> f = fc.showOpenMultipleDialog(null);
+    	for (File file : f) {
+			System.out.println(file.getAbsolutePath());//aqui sai o caminho
+		}
+    	
+    	
+    	
+    	
+
+    }
+    
+    @FXML
+    void ApertarDir(ActionEvent event) {//pegar caminho de pasta
+    	
+    	DirectoryChooser chose = new DirectoryChooser();
+    	File fil = chose.showDialog(null);
+    	if (fil != null) {
+			System.out.println(fil.getAbsolutePath());
+		}
+    	
+
+    }
+    
 
 }

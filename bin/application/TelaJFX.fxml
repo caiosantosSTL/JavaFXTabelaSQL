@@ -8,12 +8,14 @@
 <AnchorPane prefHeight="409.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controlador">
    <children>
       <Button fx:id="butono" layoutX="263.0" layoutY="325.0" mnemonicParsing="false" onAction="#ExecutDB" prefHeight="30.0" prefWidth="59.0" text="Button" />
-      <TableView fx:id="tabelox" layoutX="10.0" layoutY="63.0" prefHeight="200.0" prefWidth="531.0">
+      <TableView fx:id="tabelox" layoutX="10.0" layoutY="63.0" prefHeight="200.0" prefWidth="564.0">
         <columns>
           <TableColumn fx:id="KolumID" prefWidth="75.0" text="Id" />
-          <TableColumn fx:id="KolumNome" prefWidth="217.66668701171875" text="Nome" />
-            <TableColumn fx:id="KolumColor" minWidth="0.0" prefWidth="204.0" text="Color" />
+          <TableColumn fx:id="KolumNome" prefWidth="230.0" text="Nome" />
+            <TableColumn fx:id="KolumColor" minWidth="0.0" prefWidth="220.0" text="Color" />
         </columns>
       </TableView>
+      <Button fx:id="butonFile" layoutX="433.0" layoutY="328.0" mnemonicParsing="false" onAction="#ArkivoBox" text="ButonFile" />
+      <Button fx:id="butonDir" layoutX="81.0" layoutY="328.0" mnemonicParsing="false" onAction="#ApertarDir" text="diretorio" />
    </children>
 </AnchorPane>
